@@ -7,4 +7,9 @@ npm-debug.log
 .editorconfig
 
 index.html
-style.css
+
+src/styles/
+dist/css/
+
+gulp/
+gulpfile.js

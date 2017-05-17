@@ -1,5 +1,5 @@
 ;(function() {
-	this.Filter = function() {
+	this.VanillaFilter = function() {
 		this.options = {
 			'triggerId': 'dvtrigger',
 			'targetDataAttribute': 'dvtarget',
@@ -19,17 +19,17 @@
 		}
 	};
 
-	Filter.prototype.bind = function() {
+	VanillaFilter.prototype.bind = function() {
 		this.filterTrigger.addEventListener(this.handler, this.triggerFilter.bind(this), true);
 	}
 
-	Filter.prototype.destroy = function() {
+	VanillaFilter.prototype.destroy = function() {
 		if (this.filterTrigger) {
 			this.filterTrigger.removeEventListener(this.handler, this.triggerFilter.bind(this), true);
 		}
 	}
 
-	Filter.prototype.triggerFilter = function() {
+	VanillaFilter.prototype.triggerFilter = function() {
 		var _ = this;
 
 		var allItems = document.querySelectorAll('[data-' + _.options.targetDataAttribute + ']');

@@ -2,7 +2,7 @@
   "name": "vanillafilter",
   "version": "0.0.0-development",
   "description": "Filter a selection of elements by defining a trigger and target(s)",
-  "main": "vf.min.js",
+  "main": "./dist/js/vanillafilter.min.js",
   "scripts": {
     "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
@@ -27,6 +27,14 @@
   "devDependencies": {
     "commitizen": "2.9.6",
     "cz-conventional-changelog": "2.0.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean": "^0.3.2",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^2.1.2",
+    "gulp-util": "^3.0.8",
+    "run-sequence": "^1.2.2",
     "semantic-release": "^6.3.6"
   },
   "czConfig": {
