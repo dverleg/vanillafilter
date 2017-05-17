@@ -5,7 +5,8 @@ node_modules/
 .DS_Store?
 npm-debug.log
 .travis.yml
-.index.html
 .editorconfig
-.package.json
-.style.css
+
+package.json
+index.html
+style.css
