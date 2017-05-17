@@ -1,10 +1,10 @@
 {
   "name": "vanillafilter",
-  "version": "0.0.0-semantically-released",
+  "version": "0.0.0-development",
   "description": "Filter a selection of elements by defining a trigger and target(s)",
   "main": "vf.min.js",
   "scripts": {
-  	 "commit": "git-cz",
+    "commit": "git-cz",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -30,6 +30,6 @@
     "semantic-release": "^6.3.6"
   },
   "czConfig": {
-  	"path": "node_modules/cz-conventional-changelog"
+    "path": "node_modules/cz-conventional-changelog"
   }
 }
