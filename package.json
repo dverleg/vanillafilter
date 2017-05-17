@@ -1,6 +1,6 @@
 {
   "name": "vanillafilter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Filter a selection of elements by defining a trigger and target(s)",
   "main": "vf.min.js",
   "scripts": {
@@ -15,7 +15,7 @@
     "elements",
     "javascript",
     "vanilla",
-    "vanillajs",
+    "vanillajs"
   ],
   "author": "Dennis Verleg (http://veritus.nl/)",
   "license": "MIT",
