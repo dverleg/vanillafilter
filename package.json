@@ -1,0 +1,26 @@
+{
+  "name": "vanillafilter",
+  "version": "1.0.0",
+  "description": "Filter a selection of elements by defining a trigger and target(s)",
+  "main": "vf.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dverleg/vanillafilter.git"
+  },
+  "keywords": [
+    "filter",
+    "elements",
+    "javascript",
+    "vanilla",
+    "vanillajs",
+  ],
+  "author": "Dennis Verleg (http://veritus.nl/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dverleg/vanillafilter/issues"
+  },
+  "homepage": "https://github.com/dverleg/vanillafilter#readme"
+}
