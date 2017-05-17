@@ -1,3 +1,9 @@
+<p align="center">
+<img src="https://s1.postimg.org/nimmn9kf3/vanillafilter.png" alt="vanillafilter" />
+</p>
+
+___
+
 # vanillafilter
 
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/dverleg/vanillafilter)
