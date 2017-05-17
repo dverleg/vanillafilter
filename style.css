@@ -52,8 +52,8 @@ article.tba h2 {
 
 ul {
 	width: 100%;
-	flex: 0 0 200px;
-	height: 200px;
+	flex: 0 0 100px;
+	height: 100px;
 	list-style: none;
 	display: flex;
 	flex-wrap: wrap;
@@ -63,10 +63,10 @@ ul li {
 	color: #FFF;
 	flex: 1 1 25%;
 	max-width: 25%;
-	height: 100px;
+	height: 50px;
 	display: flex;
 	justify-content: center;
-	line-height: 100px;
+	line-height: 50px;
 }
 
 ul li:nth-child(1) {
