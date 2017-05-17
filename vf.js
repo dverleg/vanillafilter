@@ -33,7 +33,7 @@
 		var _ = this;
 
 		var allItems = document.querySelectorAll('[data-' + _.options.targetDataAttribute + ']');
-		var itemsToShow = document.querySelectorAll('[data-' + _.options.targetDataAttribute + '="' + _.filterTrigger.value + '"]');
+		var itemsToShow = document.querySelectorAll('[data-' + _.options.targetDataAttribute + '*="' + _.filterTrigger.value + '"]');
 
 		var allItemsArray = Object.keys(allItems).map(function(index) {
 			return allItems[index];
