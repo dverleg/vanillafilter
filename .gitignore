@@ -1,11 +1,10 @@
 composer.lock
 composer.phar
 node_modules/
+npm-debug.log
 .DS_Store
 .DS_Store?
-npm-debug.log
 .editorconfig
 
-package.json
 index.html
 style.css
