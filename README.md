@@ -36,6 +36,7 @@ OR
 Download and include the ./dist/js/vanillafilter.min.js script directly in your HTML
 ```javascript
 <script type="text/javascript" src="[scripts-folder]/vanillafilter.min.js"></script>
+```
 
 2. Setup your HTML structure for filtering, for example:
 ```html
