@@ -14,7 +14,7 @@ ___
 ### Intro
 VanillaJS library to bind filtering to any element of your choice. Specify the filter trigger and targets (or use the defaults) and let vanillafilter do its' magic.
 
-> Extremely lightweight - less than 1 kb minified
+> Extremely lightweight - ~1 kb minified
 
 > VanillaJS - no jQuery required
 
