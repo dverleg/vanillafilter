@@ -15,3 +15,4 @@ gulp/
 gulpfile.js
 
 test/
+coverage/
