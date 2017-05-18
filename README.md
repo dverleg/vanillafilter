@@ -1,11 +1,10 @@
 <p align="center">
-<img src="https://s1.postimg.org/nimmn9kf3/vanillafilter.png" alt="vanillafilter" />
+  <img src="https://s1.postimg.org/nimmn9kf3/vanillafilter.png" alt="vanillafilter" width="250" height="250" />
 </p>
 
 ___
 
 # vanillafilter
-
 [![Travis](https://img.shields.io/travis/rust-lang/rust.svg)](https://github.com/dverleg/vanillafilter)
 [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/dverleg/vanillafilter)
 [![npm](https://img.shields.io/npm/dt/express.svg)](https://www.npmjs.com/package/vanillafilter)
@@ -13,8 +12,9 @@ ___
 
 ### Intro
 VanillaJS library to bind filtering to any element of your choice. Specify the filter trigger and targets (or use the defaults) and let vanillafilter do its' magic.
-
-> Extremely lightweight - ~1 kb minified
+> Extremely lightweight <br>
+> ~1kb minified <br>
+> ~500bytes gzipped
 
 > VanillaJS - no jQuery required
 
@@ -28,18 +28,18 @@ $ yarn add vanillafilter
 
 2. Setup your HTML structure for filtering, for example:
 ```html
-<select id="vanillatrigger">
+<select data-vanillatrigger>
   <option value="">Select filter</option>
   <option value="even">Even</option>
   <option value="odd">Odd</option>
 </select>
 
-<ol>
+<ul>
   <li data-vanillatarget="odd">First.</li>
   <li data-vanillatarget="even">Second.</li>
   <li data-vanillatarget="odd">Third.</li>
   <li data-vanillatarget="even">Fourth.</li>
-</ol>
+</ul>
 ```
 
 3. Instantiate vanillafilter
@@ -56,25 +56,33 @@ $ yarn add vanillafilter
 vanillafilter comes with a set of options for customization. The options can be set as follows:
 ```js
   var VanillaFilter = new VanillaFilter({
-    vanillaTriggerId: 'triggerElementId',
-    vanillaTargetDataAttribute: 'targetElementsDataAttribute',
+    vanillaTrigger: 'triggerDataAttribute',
+    vanillaTarget: 'targetsDataAttribute',
     vanillaDisplayType: 'wantedDisplayType',
   });
 ```
 
-#### vanillaTriggerId
-The ID of the element that you want to trigger the filtering, for example a select dropdown. 
-> default: vanillatrigger
+#### vanillaTrigger
+The data-attribute selector of the element(s) that should trigger the filtering, for example a select dropdown or a div.
+> default: vanillatrigger <br>
+> Which selects all [data-vanillatrigger] elements
 ```html
-<select id="vanillatrigger"></select>
+<select data-vanillatrigger></select>
 ```
 
-#### vanillaTargetDataAttribute
-The data-attribute of the elements that you want to target for filtering, this can be any element.
-> default: data-vanillatarget
+> If you use a div, span or any 'clickable' element as trigger, you have to define the trigger value in the data-vanillatrigger attribute. For example:
+```html
+<span data-vanillatrigger="odd">Odd</span>
+<span data-vanillatrigger="even">Even</span>
+```
+
+#### vanillaTarget
+The data-attribute selector of the elements that you want to target for filtering, this can be any element.
+> default: vanillatarget <br>
+> Which selects all [data-vanillatarget] elements
 ```html
 <ul>
-  <li data-vanillatarget=""></li>
+  <li data-vanillatarget="filtervalue"></li>
 </ul>
 ```
 
