@@ -9,6 +9,9 @@ ___
 [![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/dverleg/vanillafilter)
 [![npm](https://img.shields.io/npm/dt/express.svg)](https://www.npmjs.com/package/vanillafilter)
 
+[Intro](#intro)<br>
+[Usage](#usage)<br>
+[Options](#options)
 
 ### Intro
 VanillaJS library to bind filtering to any element of your choice. Specify the filter trigger and targets (or use the defaults) and let vanillafilter do its' magic.
@@ -19,6 +22,8 @@ VanillaJS library to bind filtering to any element of your choice. Specify the f
 > VanillaJS - no jQuery required
 
 > Lightning fast
+
+<br><br>
 
 ### Usage
 1. Install vanillafilter dependency
@@ -51,6 +56,7 @@ $ yarn add vanillafilter
 
 4. That's it!
 
+<br><br>
 
 ### Options
 vanillafilter comes with a set of options for customization. The options can be set as follows:
