@@ -26,10 +26,16 @@ VanillaJS library to bind filtering to any element of your choice. Specify the f
 <br><br>
 
 ### Usage
-1. Install vanillafilter dependency
+1. Install vanillafilter dependency and import it into one of your modules / scripts
 ```
 $ yarn add vanillafilter
 ```
+
+OR
+
+Download and include the ./dist/js/vanillafilter.min.js script directly in your HTML
+```javascript
+<script type="text/javascript" src="[scripts-folder]/vanillafilter.min.js"></script>
 
 2. Setup your HTML structure for filtering, for example:
 ```html
