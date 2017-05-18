@@ -53,7 +53,7 @@ $ yarn add vanillafilter
 
 
 ### Options
-vanillafilter comes with a set of options for customization. The options can be set as following:
+vanillafilter comes with a set of options for customization. The options can be set as follows:
 ```js
   var VanillaFilter = new VanillaFilter({
     vanillaTriggerId: 'triggerElementId',
