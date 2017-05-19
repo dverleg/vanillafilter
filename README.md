@@ -22,9 +22,11 @@ VanillaJS library to bind filtering to any element of your choice. Specify the f
 > ~1kb minified <br>
 > ~500bytes gzipped
 
-:tada: VanillaJS - no jQuery required
+:tada: VanillaJS
+> no jQuery required
 
 :zap: Lightning fast
+> Instant filtering
 
 <br><br>
 
