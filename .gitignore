@@ -10,8 +10,6 @@ index.*
 
 src/styles/
 src/images/
-dist/css/
-dist/img/
 
 gulp/
 gulpfile.js
