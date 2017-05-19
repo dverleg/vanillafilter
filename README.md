@@ -17,13 +17,14 @@ ___
 
 ### Intro
 VanillaJS library to bind filtering to any element of your choice. Specify the filter trigger and targets (or use the defaults) and let vanillafilter do its' magic.
-> Extremely lightweight <br>
+
+:leaves: Extremely lightweight <br>
 > ~1kb minified <br>
 > ~500bytes gzipped
 
-> VanillaJS - no jQuery required
+:tada: VanillaJS - no jQuery required
 
-> Lightning fast
+:zap: Lightning fast
 
 <br><br>
 
