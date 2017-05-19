@@ -28,6 +28,9 @@ VanillaJS library to bind filtering to any element of your choice. Specify the f
 :zap: Lightning fast
 > Instant filtering
 
+##### Demo
+Clone the project and open up demo.html to view a live working vanillafilter demo
+
 <br>
 
 ### Usage
