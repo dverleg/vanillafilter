@@ -28,16 +28,22 @@ VanillaJS library to bind filtering to any element of your choice. Specify the f
 :zap: Lightning fast
 > Instant filtering
 
-<br><br>
+<br>
 
 ### Usage
-1. Install vanillafilter dependency and import it into one of your modules / scripts
+1. Install vanillafilter
+
+##### Adding it to your module
+Install the dependency via Yarn to include it in your modules
 ```
 $ yarn add vanillafilter
 ```
+Include it in your module:
+```javascript
+import 'vanillafilter';
+```
 
-OR
-
+##### Direct script include
 Download and include the ./dist/js/vanillafilter.min.js script directly in your HTML
 ```javascript
 <script type="text/javascript" src="[scripts-folder]/vanillafilter.min.js"></script>
@@ -59,8 +65,8 @@ Download and include the ./dist/js/vanillafilter.min.js script directly in your 
 </ul>
 ```
 
-3. Instantiate vanillafilter
-```js
+3. Create a new vanillafilter by using the following script
+```javascript
 <script>
   var VanillaFilter = new VanillaFilter();
 </script>
@@ -68,7 +74,7 @@ Download and include the ./dist/js/vanillafilter.min.js script directly in your 
 
 4. That's it!
 
-<br><br>
+<br>
 
 ### Options
 vanillafilter comes with a set of options for customization. The options can be set as follows:
