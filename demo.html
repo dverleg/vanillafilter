@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>JavaScript Libraries</title>
+	<title>vanillafilter</title>
 
 	<meta charset="utf-8">
 	<meta name="author" content="Dennis Verleg">
@@ -26,16 +26,40 @@
 	</header>
 
 	<nav>
-		<span data-vanillatrigger="">Show all</span>
-			<span data-vanillatrigger="cap">Caps</span>
-			<span data-vanillatrigger="sweater">Sweaters</span>
-			<span data-vanillatrigger="sneakers">Sneakers</span>
-			<span data-vanillatrigger="jeans">Jeans</span>
+		<div>
+			<div>
+				<label data-vanillatrigger="">Show all</label>
+			</div>
+			<div>
+				<input id="cap" type="checkbox" data-vanillatrigger value="cap" name="filter">
+				<label for="cap">
+					<span></span>Caps
+				</label>
+			</div>
+			<div>
+				<input id="sweater" type="checkbox" data-vanillatrigger value="sweater" name="filter">
+				<label for="sweater">
+					<span></span>Sweaters
+				</label>
+			</div>
+			<div>
+				<input id="sneakers" type="checkbox" data-vanillatrigger value="sneakers" name="filter">
+				<label for="sneakers">
+					<span></span>Sneakers
+				</label>
+			</div>
+			<div>
+				<input id="jeans" type="checkbox" data-vanillatrigger value="jeans" name="filter">
+				<label for="jeans">
+					<span></span>Jeans
+				</label>
+			</div>
+		</div>
 	</nav>
 
 	<article>
-		<figure data-vanillatarget='jeans'>
-			<img src='./dist/img/stock_0023_jeans1.jpg' width='250' height='150' />
+		<figure data-vanillatarget="jeans, women">
+			<img src="./dist/img/stock_0023_jeans1.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -45,8 +69,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='cap'>
-			<img src='./dist/img/stock_0003_cap3.jpg' width='250' height='150' />
+				<figure data-vanillatarget="cap, men">
+			<img src="./dist/img/stock_0003_cap3.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -56,8 +80,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='sweater'>
-			<img src='./dist/img/stock_0011_sweater1.jpg' width='250' height='150' />
+				<figure data-vanillatarget="sweater, men, women">
+			<img src="./dist/img/stock_0011_sweater1.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -67,8 +91,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='sweater'>
-			<img src='./dist/img/stock_0008_sweater4.jpg' width='250' height='150' />
+				<figure data-vanillatarget="sweater, women">
+			<img src="./dist/img/stock_0008_sweater4.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -78,8 +102,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='cap'>
-			<img src='./dist/img/stock_0000_cap6.jpg' width='250' height='150' />
+				<figure data-vanillatarget="cap, women">
+			<img src="./dist/img/stock_0000_cap6.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -89,8 +113,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='sweater'>
-			<img src='./dist/img/stock_0006_sweater6.jpg' width='250' height='150' />
+				<figure data-vanillatarget="sweater, men">
+			<img src="./dist/img/stock_0006_sweater6.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -100,8 +124,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='jeans'>
-			<img src='./dist/img/stock_0022_jeans2.jpg' width='250' height='150' />
+				<figure data-vanillatarget="jeans, men">
+			<img src="./dist/img/stock_0022_jeans2.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -111,8 +135,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='cap'>
-			<img src='./dist/img/stock_0004_cap2.jpg' width='250' height='150' />
+				<figure data-vanillatarget="cap, women">
+			<img src="./dist/img/stock_0004_cap2.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -122,8 +146,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='sweater'>
-			<img src='./dist/img/stock_0009_sweater3.jpg' width='250' height='150' />
+				<figure data-vanillatarget="sweater, women">
+			<img src="./dist/img/stock_0009_sweater3.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -133,8 +157,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='jeans'>
-			<img src='./dist/img/stock_0019_jeans5.jpg' width='250' height='150' />
+				<figure data-vanillatarget="jeans, women">
+			<img src="./dist/img/stock_0019_jeans5.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -144,8 +168,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='sneakers'>
-			<img src='./dist/img/stock_0017_sneakers1.jpg' width='250' height='150' />
+				<figure data-vanillatarget="sneakers, men">
+			<img src="./dist/img/stock_0017_sneakers1.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -155,8 +179,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='sneakers'>
-			<img src='./dist/img/stock_0015_sneakers3.jpg' width='250' height='150' />
+				<figure data-vanillatarget="sneakers, men, women">
+			<img src="./dist/img/stock_0015_sneakers3.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -166,8 +190,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='cap'>
-			<img src='./dist/img/stock_0001_cap5.jpg' width='250' height='150' />
+				<figure data-vanillatarget="cap, men">
+			<img src="./dist/img/stock_0001_cap5.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -177,8 +201,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='sweater'>
-			<img src='./dist/img/stock_0010_sweater2.jpg' width='250' height='150' />
+				<figure data-vanillatarget="sweater, men, women">
+			<img src="./dist/img/stock_0010_sweater2.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -188,8 +212,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='cap'>
-			<img src='./dist/img/stock_0002_cap4.jpg' width='250' height='150' />
+				<figure data-vanillatarget="cap, women">
+			<img src="./dist/img/stock_0002_cap4.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -199,8 +223,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='sweater'>
-			<img src='./dist/img/stock_0007_sweater5.jpg' width='250' height='150' />
+				<figure data-vanillatarget="sweater, women">
+			<img src="./dist/img/stock_0007_sweater5.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -210,8 +234,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='sneakers'>
-			<img src='./dist/img/stock_0013_sneakers5.jpg' width='250' height='150' />
+				<figure data-vanillatarget="sneakers, men">
+			<img src="./dist/img/stock_0013_sneakers5.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -221,8 +245,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='cap'>
-			<img src='./dist/img/stock_0005_cap1.jpg' width='250' height='150' />
+				<figure data-vanillatarget="cap, men, women">
+			<img src="./dist/img/stock_0005_cap1.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -232,8 +256,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='jeans'>
-			<img src='./dist/img/stock_0018_jeans6.jpg' width='250' height='150' />
+				<figure data-vanillatarget="jeans, men">
+			<img src="./dist/img/stock_0018_jeans6.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -243,8 +267,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='sneakers'>
-			<img src='./dist/img/stock_0014_sneakers4.jpg' width='250' height='150' />
+				<figure data-vanillatarget="sneakers, men">
+			<img src="./dist/img/stock_0014_sneakers4.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -254,8 +278,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='sneakers'>
-			<img src='./dist/img/stock_0012_sneakers6.jpg' width='250' height='150' />
+				<figure data-vanillatarget="sneakers, men, women">
+			<img src="./dist/img/stock_0012_sneakers6.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -265,8 +289,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='jeans'>
-			<img src='./dist/img/stock_0020_jeans4.jpg' width='250' height='150' />
+				<figure data-vanillatarget="jeans, sneakers, men">
+			<img src="./dist/img/stock_0020_jeans4.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -276,8 +300,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='sneakers'>
-			<img src='./dist/img/stock_0016_sneakers2.jpg' width='250' height='150' />
+				<figure data-vanillatarget="sneakers, women">
+			<img src="./dist/img/stock_0016_sneakers2.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -287,8 +311,8 @@
 				<a href="#">Buy article</a>
 			</figcaption>
 		</figure>
-				<figure data-vanillatarget='jeans'>
-			<img src='./dist/img/stock_0021_jeans3.jpg' width='250' height='150' />
+				<figure data-vanillatarget="jeans, sneakers, men">
+			<img src="./dist/img/stock_0021_jeans3.jpg" width="250" height="150" />
 
 			<figcaption>
 				<div>
@@ -306,6 +330,25 @@
 		new VanillaFilter({
 			vanillaDisplayType: 'flex'
 		})
+	</script>
+
+	<script type="text/javascript">
+		var targets = Object.keys(document.querySelectorAll('[data-vanillatrigger]')).map(function(index) {
+			return document.querySelectorAll('[data-vanillatrigger]')[index];
+		});
+
+		targets.filter(function(item) {
+			item.addEventListener('click', function() {
+				if(typeof item.value === 'undefined' || item.value === "") {
+					targets.filter(function(item) {
+						item.checked = false;
+						return item.classList.remove('is-active');
+					})
+				} else {
+					return item.classList.toggle('is-active');
+				}
+			});
+		});
 	</script>
 
 </body>
