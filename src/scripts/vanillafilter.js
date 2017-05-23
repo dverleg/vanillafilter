@@ -27,6 +27,7 @@
 		 * @type {Elements Object} | {Element}
 		 */
 		this.filterTrigger = document.querySelectorAll('[data-' + this.options.vanillaTrigger + ']');
+		this.filterValues = [];
 
 		/**
 		 * Check if we have any filterTrigger instances
@@ -56,7 +57,13 @@
 	VanillaFilter.prototype.triggerFilter = function(event) {
 		event.preventDefault();
 
-		var _ = this;
+		var _ = this,
+			activeFilter = event.target;
+
+		/**
+		 * Set the correct active filters
+		 */
+		_.filterValues = getFilterValues(activeFilter, _.options.vanillaTrigger, _.filterValues);
 
 		/**
 		 * Get all the targets to filter on
@@ -70,9 +77,21 @@
 		 * @param  {Element} item
 		 */
 		allTargets.filter(function(item) {
-			var shouldShow = (item.dataset[_.options.vanillaTarget] === getFilterValue(event.target, _.options.vanillaTrigger)) || getFilterValue(event.target, _.options.vanillaTrigger) === '';
+			if(_.filterValues.length === 0) {
+				return item.style.display = _.options.vanillaDisplayType;
+			} else {
+				var intersect = false;
 
-			return item.style.display = shouldShow ? _.options.vanillaDisplayType : 'none';
+				_.filterValues.filter(function(activeFilter) {
+					var targetValues = getTargetValues(item, _.options.vanillaTarget);
+
+					if(!intersect) {
+						intersect = targetValues.includes(activeFilter);
+					}
+				});
+
+				return item.style.display = intersect ? _.options.vanillaDisplayType : 'none';
+			}
 		});
 	}
 
@@ -92,7 +111,7 @@
 	}
 
 	/**
-	 * Get the correct handler for the clicked filterTrigger
+	 * Get the correct handler for the clicked filter trigger
 	 * @param  {Element} element
 	 */
 	function getTriggerHandler(element) {
@@ -100,15 +119,44 @@
 	}
 
 	/**
-	 * Get the value from the filterTrigger to filter on
-	 * @param  {Element} target
-	 * @param  {String} trigger
+	 * Get the currenct active filter values from filter triggers to filter on
+	 * @param  {Element} filterElem
+	 * @param  {String} filterTriggerValue
 	 */
-	function getFilterValue(target, trigger) {
-		if(['SELECT', 'INPUT'].includes(target.tagName)) {
-			return target.value;
+	function getFilterValues(filterElem, filterTriggerValue, currentFilters) {
+		var value,
+			newFilters = currentFilters;
+
+		if(['SELECT', 'INPUT'].includes(filterElem.tagName)) {
+			value = filterElem.value;
 		} else {
-			return target.dataset[trigger];
+			value = filterElem.dataset[filterTriggerValue];
 		}
+
+		if(value === "") {
+			newFilters = [];
+		} else {
+			if(currentFilters.includes(value)) {
+				newFilters.splice(newFilters.indexOf(value), 1);
+			} else {
+				newFilters.push(value);
+			}
+		}
+
+		return newFilters;
 	}
+
+	/**
+	 * Get the filter values from a target element that should be filtered
+	 * @param  {Element} targetElem
+	 * @param  {String} targetFilterValue
+	 */
+	function getTargetValues(targetElem, targetFilterValue) {
+		var targetValues = targetElem.dataset[targetFilterValue],
+			trimmedTargetValues = targetValues.replace(/\s/g, ''),
+			separateTrimmedTargetValues = trimmedTargetValues.split(',');
+
+		return separateTrimmedTargetValues.filter(Boolean);
+	}
+
 })();
