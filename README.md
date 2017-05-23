@@ -29,7 +29,7 @@ VanillaJS library to bind filtering to any element of your choice. Specify the f
 > Instant filtering
 
 ##### Demo
-Clone the project and open up demo.html to view a live working vanillafilter demo
+Clone the project and open up ```/demo.html``` to view a live working vanillafilter demo
 
 <br>
 
@@ -68,14 +68,17 @@ Download and include the ./dist/js/vanillafilter.min.js script directly in your 
 </ul>
 ```
 
+> You can use multiple filter values on the data-vanillatarget. Just add the values comma separated in the ```data-vanillatarget``` attribute. For example:
+```html
+<li data-vanillatarget="odd, even">One and two</option>
+```
+
 3. Create a new vanillafilter by using the following script
 ```javascript
 <script>
   var VanillaFilter = new VanillaFilter();
 </script>
 ```
-
-4. That's it!
 
 <br>
 
@@ -93,11 +96,18 @@ vanillafilter comes with a set of options for customization. The options can be 
 The data-attribute selector of the element(s) that should trigger the filtering, for example a select dropdown or a div.
 > default: vanillatrigger <br>
 > Which selects all [data-vanillatrigger] elements
-```html
-<select data-vanillatrigger></select>
-```
 
-> If you use a div, span or any 'clickable' element as trigger, you have to define the trigger value in the data-vanillatrigger attribute. For example:
+> If you use an input element, such as a ```<select>``` or ```<input type="checkbox">```, you should use the ```value``` attribute to define the filter value. For example:
+```html
+<select>
+  <option data-vanillatrigger value="">Select all</option>
+  <option data-vanillatrigger value="odd">Odd</option>
+  <option data-vanillatrigger value="even">Even</option>
+</select>
+```
+Note that you still have to add the ```data-vanillatrigger``` attribute on the input elements.
+
+> If you use a div, span or any 'clickable' element as trigger, you should define the trigger value in the data-vanillatrigger attribute. For example:
 ```html
 <span data-vanillatrigger="odd">Odd</span>
 <span data-vanillatrigger="even">Even</span>
