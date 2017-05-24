@@ -44,7 +44,9 @@
     "jsdom-global": "3.0.2",
     "mocha": "3.4.1",
     "run-sequence": "^1.2.2",
-    "semantic-release": "^6.3.6"
+    "semantic-release": "^6.3.6",
+    "sinon": "^2.3.1",
+    "sinon-chai": "^2.10.0"
   },
   "czConfig": {
     "path": "node_modules/cz-conventional-changelog"
