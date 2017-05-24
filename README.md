@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://s1.postimg.org/nimmn9kf3/vanillafilter.png" alt="vanillafilter" width="250" height="250" />
+	<img src="https://s1.postimg.org/nimmn9kf3/vanillafilter.png" alt="vanillafilter" width="250" height="250" />
 </p>
 
 ___
@@ -10,6 +10,7 @@ ___
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dverleg/vanillafilter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dverleg/vanillafilter/?branch=master)
 [![Scrutinizer Code Coverage](https://scrutinizer-ci.com/g/dverleg/vanillafilter/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/dverleg/vanillafilter/?branch=master)
 [![npm](https://img.shields.io/npm/dm/vanillafilter.svg)](https://www.npmjs.com/package/vanillafilter)
+[![dependencies](https://david-dm.org/dverleg/vanillafilter.svg)](https://www.npmjs.com/package/vanillafilter)
 
 [Intro](#intro)<br>
 [Usage](#usage)<br>
@@ -55,16 +56,16 @@ Download and include the ./dist/js/vanillafilter.min.js script directly in your 
 2. Setup your HTML structure for filtering, for example:
 ```html
 <select data-vanillatrigger>
-  <option value="">Select filter</option>
-  <option value="even">Even</option>
-  <option value="odd">Odd</option>
+	<option value="">Select filter</option>
+	<option value="even">Even</option>
+	<option value="odd">Odd</option>
 </select>
 
 <ul>
-  <li data-vanillatarget="odd">First.</li>
-  <li data-vanillatarget="even">Second.</li>
-  <li data-vanillatarget="odd">Third.</li>
-  <li data-vanillatarget="even">Fourth.</li>
+	<li data-vanillatarget="odd">First.</li>
+	<li data-vanillatarget="even">Second.</li>
+	<li data-vanillatarget="odd">Third.</li>
+	<li data-vanillatarget="even">Fourth.</li>
 </ul>
 ```
 
@@ -76,7 +77,7 @@ Download and include the ./dist/js/vanillafilter.min.js script directly in your 
 3. Create a new vanillafilter by using the following script
 ```javascript
 <script>
-  var VanillaFilter = new VanillaFilter();
+	var VanillaFilter = new VanillaFilter();
 </script>
 ```
 
@@ -85,11 +86,11 @@ Download and include the ./dist/js/vanillafilter.min.js script directly in your 
 ### Options
 vanillafilter comes with a set of options for customization. The options can be set as follows:
 ```js
-  var VanillaFilter = new VanillaFilter({
-    vanillaTrigger: 'triggerDataAttribute',
-    vanillaTarget: 'targetsDataAttribute',
-    vanillaDisplayType: 'wantedDisplayType',
-  });
+	var VanillaFilter = new VanillaFilter({
+		vanillaTrigger: 'triggerDataAttribute',
+		vanillaTarget: 'targetsDataAttribute',
+		vanillaDisplayType: 'wantedDisplayType',
+	});
 ```
 
 #### vanillaTrigger
@@ -100,9 +101,9 @@ The data-attribute selector of the element(s) that should trigger the filtering,
 > If you use an input element, such as a ```<select>``` or ```<input type="checkbox">```, you should use the ```value``` attribute to define the filter value. For example:
 ```html
 <select>
-  <option data-vanillatrigger value="">Select all</option>
-  <option data-vanillatrigger value="odd">Odd</option>
-  <option data-vanillatrigger value="even">Even</option>
+	<option data-vanillatrigger value="">Select all</option>
+	<option data-vanillatrigger value="odd">Odd</option>
+	<option data-vanillatrigger value="even">Even</option>
 </select>
 ```
 Note that you still have to add the ```data-vanillatrigger``` attribute on the input elements.
@@ -119,7 +120,7 @@ The data-attribute selector of the elements that you want to target for filterin
 > Which selects all [data-vanillatarget] elements
 ```html
 <ul>
-  <li data-vanillatarget="filtervalue"></li>
+	<li data-vanillatarget="filtervalue"></li>
 </ul>
 ```
 
