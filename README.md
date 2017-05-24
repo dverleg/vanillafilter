@@ -20,8 +20,8 @@ ___
 VanillaJS library to bind filtering to any element of your choice. Specify the filter trigger and targets (or use the defaults) and let vanillafilter do its' magic.
 
 :leaves: Extremely lightweight <br>
-> ~1kb minified <br>
-> ~500bytes gzipped
+> ~1.5kb minified <br>
+> ~640bytes gzipped
 
 :tada: VanillaJS
 > no jQuery required
