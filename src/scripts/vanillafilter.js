@@ -1,4 +1,3 @@
-;
 (function() {
 	/**
 	 * Create VanillaFilter instance
@@ -11,7 +10,7 @@
 		this.options = {
 			vanillaTrigger: 'vanillatrigger',
 			vanillaTarget: 'vanillatarget',
-			vanillaDisplayType: 'block',
+			vanillaDisplayType: 'block'
 		}
 
 		/**
@@ -78,7 +77,7 @@
 		 */
 		allTargets.filter(function(item) {
 			if(_.filterValues.length === 0) {
-				return item.style.display = _.options.vanillaDisplayType;
+				item.style.display = _.options.vanillaDisplayType;
 			} else {
 				var intersect = false;
 
@@ -90,7 +89,7 @@
 					}
 				});
 
-				return item.style.display = intersect ? _.options.vanillaDisplayType : 'none';
+				item.style.display = intersect ? _.options.vanillaDisplayType : 'none';
 			}
 		});
 	}
@@ -115,7 +114,9 @@
 	 * @param  {Element} element
 	 */
 	function getTriggerHandler(element) {
-		return ['SELECT', 'INPUT'].includes(element.tagName) ? 'change' : 'click';
+		var handler = ['SELECT', 'INPUT'].includes(element.tagName) ? 'change' : 'click';
+
+		return handler;
 	}
 
 	/**

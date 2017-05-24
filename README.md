@@ -7,6 +7,8 @@ ___
 # vanillafilter
 [![GitHub release](https://img.shields.io/github/release/dverleg/vanillafilter.svg)](https://github.com/dverleg/vanillafilter)
 [![Travis](https://img.shields.io/travis/dverleg/vanillafilter.svg)](https://travis-ci.org/dverleg/vanillafilter)
+[![Code Climate](https://img.shields.io/codeclimate/github/dverleg/vanillafilter.svg)](https://codeclimate.com/github/dverleg/vanillafilter)
+[![Code Climate](https://img.shields.io/codeclimate/issues/github/dverleg/vanillafilter.svg)](https://codeclimate.com/github/dverleg/vanillafilter)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dverleg/vanillafilter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dverleg/vanillafilter/?branch=master)
 [![Scrutinizer Code Coverage](https://scrutinizer-ci.com/g/dverleg/vanillafilter/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/dverleg/vanillafilter/?branch=master)
 [![npm](https://img.shields.io/npm/dm/vanillafilter.svg)](https://www.npmjs.com/package/vanillafilter)
