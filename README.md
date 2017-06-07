@@ -103,7 +103,7 @@ The data-attribute selector of the element(s) that should trigger the filtering,
 > If you use an input element, such as a ```<select>``` or ```<input type="checkbox">```, you should use the ```value``` attribute to define the filter value. For example:
 ```html
 <select>
-	<option data-vanillatrigger value="">Select all</option>
+	<option data-vanillatrigger value="">Show all</option>
 	<option data-vanillatrigger value="odd">Odd</option>
 	<option data-vanillatrigger value="even">Even</option>
 </select>
@@ -112,6 +112,7 @@ Note that you still have to add the ```data-vanillatrigger``` attribute on the i
 
 > If you use a div, span or any 'clickable' element as trigger, you should define the trigger value in the data-vanillatrigger attribute. For example:
 ```html
+<span data-vanillatrigger="">Show all</span>
 <span data-vanillatrigger="odd">Odd</span>
 <span data-vanillatrigger="even">Even</span>
 ```
