@@ -10,7 +10,8 @@
 		this.options = {
 			vanillaTrigger: 'vanillatrigger',
 			vanillaTarget: 'vanillatarget',
-			vanillaDisplayType: 'block'
+			vanillaDisplayType: 'block',
+			vanillaFallbackSelector: '.vanilla-no-results'
 		}
 
 		/**
@@ -25,6 +26,7 @@
 		 * Get all the filterTrigger elements to trigger filtering
 		 * @type {Elements Object} | {Element}
 		 */
+		this.vanillaFallback = document.querySelectorAll(this.options.vanillaFallbackSelector);
 		this.filterTrigger = document.querySelectorAll('[data-' + this.options.vanillaTrigger + ']');
 		this.filterValues = [];
 
@@ -38,6 +40,14 @@
 			Object.keys(_.filterTrigger).map(function(index) {
 				return _.bind(_.filterTrigger[index], getTriggerHandler(_.filterTrigger[index]));
 			});
+		}
+
+		/**
+		 * If we have a fallback element, hide it on init
+		 * @param  {Element} element
+		 */
+		if(this.vanillaFallback) {
+			this.fallback(false);
 		}
 	}
 
@@ -75,6 +85,8 @@
 		 * Filter the correct results and show/hide them
 		 * @param  {Element} item
 		 */
+		var results = [];
+
 		allTargets.filter(function(item) {
 			if(_.filterValues.length === 0) {
 				item.style.display = _.options.vanillaDisplayType;
@@ -90,23 +102,46 @@
 				});
 
 				item.style.display = intersect ? _.options.vanillaDisplayType : 'none';
+
+				if(intersect) {
+					results.push(item);
+				}
 			}
+		});
+
+		/**
+		 * Trigger the fallback function on every filter change
+		 */
+		if(this.vanillaFallback.length) {
+			this.fallback(_.filterValues.length && !results.length);
+		}
+	}
+
+	/**
+	 * Show a fallback element when we have active filters, but no results are returned.
+	 */
+	VanillaFilter.prototype.fallback = function(show) {
+		var _ = this,
+			display = (show ? 'block' : 'none');
+
+		Object.keys(_.vanillaFallback).map(function(index) {
+			_.vanillaFallback[index].style.display = display;
 		});
 	}
 
 	/**
 	 * Extend default options by user input options
-	 * @param  {Object} source
-	 * @param  {Object} properties
+	 * @param  {Object} options
+	 * @param  {Object} overrides
 	 */
-	function extendDefaults(source, properties) {
-		for (var property in properties) {
-			if (properties.hasOwnProperty(property)) {
-				source[property] = properties[property];
+	function extendDefaults(options, overrides) {
+		for (var option in overrides) {
+			if (overrides.hasOwnProperty(option)) {
+				options[option] = overrides[option];
 			}
 		}
 
-		return source;
+		return options;
 	}
 
 	/**

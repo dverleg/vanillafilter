@@ -22,8 +22,8 @@ ___
 VanillaJS library to bind filtering to any element of your choice. Specify the filter trigger and targets (or use the defaults) and let vanillafilter do its' magic.
 
 :leaves: Extremely lightweight <br>
-> ~1.5kb minified <br>
-> ~640bytes gzipped
+> ~2kb minified <br>
+> ~750bytes gzipped
 
 :tada: VanillaJS
 > no jQuery required
@@ -92,6 +92,7 @@ vanillafilter comes with a set of options for customization. The options can be 
 		vanillaTrigger: 'triggerDataAttribute',
 		vanillaTarget: 'targetsDataAttribute',
 		vanillaDisplayType: 'wantedDisplayType',
+		vanillaFallbackSelector: 'elementSelector',
 	});
 ```
 
@@ -132,4 +133,12 @@ The CSS 'display' you wish to give the target elements once they're filtered (an
 > default: block
 ```css
 display: block;
+```
+
+#### vanillaFallbackSelector
+The selector for the element you wish to show when there are no results for the active filters.
+> default: .vanilla-no-results <br>
+> Which selects all elements with class 'vanilla-no-results'
+```html
+<div class="vanilla-no-results">No results for the current filters.</div>
 ```
