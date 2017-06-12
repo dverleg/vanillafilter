@@ -88,10 +88,12 @@
 		var results = [];
 
 		allTargets.filter(function(item) {
+			var intersect = false;
+
 			if(_.filterValues.length === 0) {
 				item.style.display = _.options.vanillaDisplayType;
 			} else {
-				var intersect = false;
+				// console.log('filtervalues', _.filterValues);
 
 				_.filterValues.filter(function(activeFilter) {
 					var targetValues = getTargetValues(item, _.options.vanillaTarget);
@@ -100,6 +102,8 @@
 						intersect = targetValues.includes(activeFilter);
 					}
 				});
+
+				// console.log(item.dataset['vanillatarget'], intersect);
 
 				item.style.display = intersect ? _.options.vanillaDisplayType : 'none';
 
@@ -172,10 +176,15 @@
 		if(value === "") {
 			newFilters = [];
 		} else {
-			if(currentFilters.includes(value)) {
-				newFilters.splice(newFilters.indexOf(value), 1);
-			} else {
+			if(['SELECT'].includes(filterElem.tagName)) {
+				newFilters = [];
 				newFilters.push(value);
+			} else {
+				if(currentFilters.includes(value)) {
+					newFilters.splice(newFilters.indexOf(value), 1);
+				} else {
+					newFilters.push(value);
+				}
 			}
 		}
 
