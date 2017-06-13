@@ -73,7 +73,7 @@ Download and include the ./dist/js/vanillafilter.min.js script directly in your 
 
 > You can use multiple filter values on the data-vanillatarget. Just add the values comma separated in the ```data-vanillatarget``` attribute. For example:
 ```html
-<li data-vanillatarget="odd, even">One and two</option>
+<li data-vanillatarget="odd, even">One and two</li>
 ```
 
 3. Create a new vanillafilter by using the following script
@@ -103,10 +103,10 @@ The data-attribute selector of the element(s) that should trigger the filtering,
 
 > If you use an input element, such as a ```<select>``` or ```<input type="checkbox">```, you should use the ```value``` attribute to define the filter value. For example:
 ```html
-<select>
-	<option data-vanillatrigger value="">Show all</option>
-	<option data-vanillatrigger value="odd">Odd</option>
-	<option data-vanillatrigger value="even">Even</option>
+<select data-vanillatrigger>
+	<option value="">Show all</option>
+	<option value="odd">Odd</option>
+	<option value="even">Even</option>
 </select>
 ```
 Note that you still have to add the ```data-vanillatrigger``` attribute on the input elements.
