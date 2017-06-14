@@ -8,10 +8,12 @@
 		 * @type {Object}
 		 */
 		this.options = {
+			debug: false,
 			vanillaTrigger: 'vanillatrigger',
 			vanillaTarget: 'vanillatarget',
 			vanillaDisplayType: 'block',
-			vanillaFallbackSelector: '.vanilla-no-results'
+			vanillaFallbackSelector: '.vanilla-no-results',
+			vanillaCallbackFunction: function() {}
 		}
 
 		/**
@@ -19,7 +21,11 @@
 		 * @param  {Object}
 		 */
 		if (arguments[0] && typeof arguments[0] === "object") {
-			this.options = extendDefaults(this.options, arguments[0]);
+			this.options = _extendDefaults(this.options, arguments[0]);
+		}
+
+		if(this.options.debug === true) {
+			console.log('vanillafilter: Found options: [', this.options ,']');
 		}
 
 		/**
@@ -38,7 +44,7 @@
 			var _ = this;
 
 			Object.keys(_.filterTrigger).map(function(index) {
-				return _.bind(_.filterTrigger[index], getTriggerHandler(_.filterTrigger[index]));
+				return _.bind(_.filterTrigger[index], _getTriggerHandler(_.filterTrigger[index]));
 			});
 		}
 
@@ -47,6 +53,10 @@
 		 * @param  {Element} element
 		 */
 		if(this.vanillaFallback) {
+			if(this.options.debug === true) {
+				console.log('vanillafilter: Found fallback element(s): [', this.vanillaFallback ,'], hiding it on initialisation');
+			}
+
 			this.fallback(false);
 		}
 	}
@@ -57,6 +67,10 @@
 	 * @param  {String} handler
 	 */
 	VanillaFilter.prototype.bind = function(element, handler) {
+		if(this.options.debug === true) {
+			console.log('vanillafilter: Bound filterTrigger to our vanillafilter: [', element ,'] with handler: [', handler ,']');
+		}
+
 		return element.addEventListener(handler, this.triggerFilter.bind(this), true);
 	}
 
@@ -69,10 +83,14 @@
 		var _ = this,
 			activeFilter = event.target;
 
+		if(_.options.debug === true) {
+			console.log('vanillafilter: triggerFilter called for: [', activeFilter ,']. Added to activeFilters');
+		}
+
 		/**
 		 * Set the correct active filters
 		 */
-		_.filterValues = getFilterValues(activeFilter, _.options.vanillaTrigger, _.filterValues);
+		_.filterValues = _getFilterValues(activeFilter, _.options.vanillaTrigger, _.filterValues);
 
 		/**
 		 * Get all the targets to filter on
@@ -85,36 +103,54 @@
 		 * Filter the correct results and show/hide them
 		 * @param  {Element} item
 		 */
-		var results = [];
+		var results = [],
+			hide = [];
 
-		allTargets.filter(function(item) {
-			var intersect = false;
+		allTargets.filter(function(targetElement, index) {
+			var shouldShowTargetItem = false;
 
 			if(_.filterValues.length === 0) {
-				item.style.display = _.options.vanillaDisplayType;
+				if(_.options.debug === true && index === 0) {
+					console.log('vanillafilter: No filter values found, triggering display: [', _.options.vanillaDisplayType ,'] for all targets');
+				}
+
+				targetElement.style.display = _.options.vanillaDisplayType;
 			} else {
-				// console.log('filtervalues', _.filterValues);
-
 				_.filterValues.filter(function(activeFilter) {
-					var targetValues = getTargetValues(item, _.options.vanillaTarget);
+					var targetValues = _getTargetValues(targetElement, _.options.vanillaTarget);
 
-					if(!intersect) {
-						intersect = targetValues.includes(activeFilter);
+					if(!shouldShowTargetItem) {
+						shouldShowTargetItem = targetValues.includes(activeFilter);
 					}
 				});
 
-				// console.log(item.dataset['vanillatarget'], intersect);
+				/**
+				 * Check if we should show the item or not, if true, push it to our results array
+				 * @param  {Boolean} should we show the target item?
+				 */
+				if(shouldShowTargetItem) {
+					if(_.options.debug === true) {
+						console.log('vanillafilter: Set display: [', _.options.vanillaDisplayType ,'] for targetElement: [', targetElement ,']. Pushing to results: [', results ,']');
+					}
 
-				item.style.display = intersect ? _.options.vanillaDisplayType : 'none';
+					targetElement.style.display = _.options.vanillaDisplayType;
+					results.push(targetElement);
 
-				if(intersect) {
-					results.push(item);
+					_vanillaCallback(_.options.vanillaCallbackFunction, targetElement, _.options.debug);
+				} else {
+					targetElement.style.display = 'none';
+					hide.push(targetElement);
 				}
 			}
 		});
 
+		if(_.options.debug === true) {
+			console.log('vanillafilter: Hiding target elements: [', hide ,']');
+		}
+
 		/**
 		 * Trigger the fallback function on every filter change
+		 * and show a fallback element if there are 0 results
 		 */
 		if(this.vanillaFallback.length) {
 			this.fallback(_.filterValues.length && !results.length);
@@ -138,7 +174,7 @@
 	 * @param  {Object} options
 	 * @param  {Object} overrides
 	 */
-	function extendDefaults(options, overrides) {
+	_extendDefaults = function(options, overrides) {
 		for (var option in overrides) {
 			if (overrides.hasOwnProperty(option)) {
 				options[option] = overrides[option];
@@ -152,7 +188,7 @@
 	 * Get the correct handler for the clicked filter trigger
 	 * @param  {Element} element
 	 */
-	function getTriggerHandler(element) {
+	_getTriggerHandler = function(element) {
 		var handler = ['SELECT', 'INPUT'].includes(element.tagName) ? 'change' : 'click';
 
 		return handler;
@@ -163,7 +199,7 @@
 	 * @param  {Element} filterElem
 	 * @param  {String} filterTriggerValue
 	 */
-	function getFilterValues(filterElem, filterTriggerValue, currentFilters) {
+	_getFilterValues = function(filterElem, filterTriggerValue, currentFilters) {
 		var value,
 			newFilters = currentFilters;
 
@@ -193,15 +229,29 @@
 
 	/**
 	 * Get the filter values from a target element that should be filtered
-	 * @param  {Element} targetElem
+	 * @param  {Element} targetElement
 	 * @param  {String} targetFilterValue
 	 */
-	function getTargetValues(targetElem, targetFilterValue) {
-		var targetValues = targetElem.dataset[targetFilterValue],
+	_getTargetValues = function(targetElement, targetFilterValue) {
+		var targetValues = targetElement.dataset[targetFilterValue],
 			trimmedTargetValues = targetValues.replace(/\s/g, ''),
 			separateTrimmedTargetValues = trimmedTargetValues.split(',');
 
 		return separateTrimmedTargetValues.filter(Boolean);
+	}
+
+	/**
+	 * If a callback function is set, call it for this targetElement
+	 * @param  {Function} callback function to trigger
+	 */
+	_vanillaCallback = function(callbackFunction, targetElement, debug) {
+		if(typeof callbackFunction === 'function') {
+			if(debug === true) {
+				console.log('vanillafilter: vanillaCallbackFunction called for element: [', targetElement ,']');
+			}
+
+			return callbackFunction(targetElement);
+		}
 	}
 
 })();

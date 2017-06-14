@@ -8,6 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:200,400,700" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="./dist/css/style.min.css">
 </head>
@@ -338,7 +339,17 @@
 	<script type="text/javascript" src="./demo.js"></script>
 	<script type="text/javascript" src="./src/scripts/vanillafilter.js"></script>
 	<script type="text/javascript">
-		new VanillaFilter();
+		new VanillaFilter({
+			vanillaCallbackFunction: function(elementToShow) {
+				elementToShow.classList.toggle('animated');
+				elementToShow.classList.toggle('pulse');
+
+				setTimeout(function() {
+					elementToShow.classList.toggle('animated');
+					elementToShow.classList.toggle('pulse');
+				}, 1000);
+			}
+		});
 	</script>
 
 </body>

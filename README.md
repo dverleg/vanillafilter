@@ -89,11 +89,25 @@ Download and include the ./dist/js/vanillafilter.min.js script directly in your 
 vanillafilter comes with a set of options for customization. The options can be set as follows:
 ```js
 	var VanillaFilter = new VanillaFilter({
+		debug: false,
 		vanillaTrigger: 'triggerDataAttribute',
 		vanillaTarget: 'targetsDataAttribute',
 		vanillaDisplayType: 'wantedDisplayType',
 		vanillaFallbackSelector: 'elementSelector',
+		vanillaCallbackFunction: function(elementToShow) {
+			// Do something with the element that will be shown
+		}
 	});
+```
+
+#### debug
+Disable or enable debug logging
+> default: false <br>
+> Which disabled debug logging
+```js
+var VanillaFilter = new VanillaFilter({
+	debug: true
+});
 ```
 
 #### vanillaTrigger
@@ -141,4 +155,13 @@ The selector for the element you wish to show when there are no results for the 
 > Which selects all elements with class 'vanilla-no-results'
 ```html
 <div class="vanilla-no-results">No results for the current filters.</div>
+```
+
+#### vanillaCallbackFunction
+The callback function for each filtered (shown) element.
+> default: function() {} <br>
+```js
+vanillaCallbackFunction: function(elementToShow) {
+	return elementToShow.classList.toggle('someAnimationClass');
+}
 ```
