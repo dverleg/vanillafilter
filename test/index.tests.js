@@ -28,6 +28,18 @@ describe('VanillaFilter', function() {
 		assert.isFunction(VFtriggerFilterFn.triggerFilter, 'VanillaFilter.triggerFilter exists and is a function');
 	});
 
+	it('should have a callback function in the settings', function() {
+		var VFbindCallbackFn = new VanillaFilter();
+
+		assert.isFunction(VFbindCallbackFn.options.vanillaCallbackFunction, 'VanillaFilter.options.vanillaCallbackFunction exists and is a function');
+	});
+
+	it('should have a fallback function', function() {
+		var VFbindFallbackFn = new VanillaFilter();
+
+		assert.isFunction(VFbindFallbackFn.fallback, 'VanillaFilter.fallback exists and is a function');
+	});
+
 	it('should override user input options', function() {
 		var VFdefaultOptions = new VanillaFilter();
 		var defaultOptions = VFdefaultOptions.options;
@@ -38,6 +50,4 @@ describe('VanillaFilter', function() {
 
 		expect(defaultOptions).to.not.equal(customOptions);
 	});
-
-
 });
