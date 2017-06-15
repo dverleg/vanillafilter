@@ -83,14 +83,14 @@
 		var _ = this,
 			activeFilter = event.target;
 
-		if(_.options.debug === true) {
-			console.log('vanillafilter: triggerFilter called for: [', activeFilter ,']. Added to activeFilters');
-		}
-
 		/**
 		 * Set the correct active filters
 		 */
 		_.filterValues = _getFilterValues(activeFilter, _.options.vanillaTrigger, _.filterValues);
+
+		if(_.options.debug === true) {
+			console.log('vanillafilter: triggerFilter called for: [', activeFilter ,']. filterValues: [', _.filterValues ,'] added to activeFilters');
+		}
 
 		/**
 		 * Get all the targets to filter on
@@ -196,30 +196,32 @@
 
 	/**
 	 * Get the currenct active filter values from filter triggers to filter on
-	 * @param  {Element} filterElem
+	 * @param  {Element} filterElement
 	 * @param  {String} filterTriggerValue
 	 */
-	_getFilterValues = function(filterElem, filterTriggerValue, currentFilters) {
-		var value,
+	_getFilterValues = function(filterElement, filterTriggerValue, currentFilters) {
+		var inputValue,
+			inputType,
 			newFilters = currentFilters;
 
-		if(['SELECT', 'INPUT'].includes(filterElem.tagName)) {
-			value = filterElem.value;
+		if(['SELECT', 'INPUT'].includes(filterElement.tagName)) {
+			inputValue = filterElement.value;
+			inputType = filterElement.getAttribute('type');
 		} else {
-			value = filterElem.dataset[filterTriggerValue];
+			inputValue = filterElement.dataset[filterTriggerValue];
 		}
 
-		if(value === "") {
+		if(inputValue === "") {
 			newFilters = [];
 		} else {
-			if(['SELECT'].includes(filterElem.tagName)) {
+			if(['SELECT'].includes(filterElement.tagName) || inputType === 'radio') {
 				newFilters = [];
-				newFilters.push(value);
+				newFilters.push(inputValue);
 			} else {
-				if(currentFilters.includes(value)) {
-					newFilters.splice(newFilters.indexOf(value), 1);
+				if(currentFilters.includes(inputValue)) {
+					newFilters.splice(newFilters.indexOf(inputValue), 1);
 				} else {
-					newFilters.push(value);
+					newFilters.push(inputValue);
 				}
 			}
 		}
@@ -242,7 +244,7 @@
 
 	/**
 	 * If a callback function is set, call it for this targetElement
-	 * @param  {Function} callback function to trigger
+	 * @param  {Function} callbackFunction to trigger
 	 */
 	_vanillaCallback = function(callbackFunction, targetElement, debug) {
 		if(typeof callbackFunction === 'function') {
@@ -252,6 +254,8 @@
 
 			return callbackFunction(targetElement);
 		}
+
+		return;
 	}
 
 })();
