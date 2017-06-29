@@ -20,9 +20,13 @@
 		<p>
 			<a href="https://github.com/dverleg/vanillafilter"><img src="https://camo.githubusercontent.com/aaa6766745b729a39ce8dff31072a73fc872f91e/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f72656c656173652f647665726c65672f76616e696c6c6166696c7465722e737667" alt="GitHub release" data-canonical-src="https://img.shields.io/github/release/dverleg/vanillafilter.svg" style="max-width:100%;"></a>
 			<a href="https://travis-ci.org/dverleg/vanillafilter"><img src="https://camo.githubusercontent.com/e240cb55d47b01cc0b00f51c0096f0332f6d2253/68747470733a2f2f696d672e736869656c64732e696f2f7472617669732f647665726c65672f76616e696c6c6166696c7465722e737667" alt="Travis" data-canonical-src="https://img.shields.io/travis/dverleg/vanillafilter.svg" style="max-width:100%;"></a>
+			<a href="https://www.npmjs.com/package/vanillafilter"><img src="https://img.shields.io/npm/dt/vanillafilter.svg" alt="npm" data-canonical-src="https://img.shields.io/npm/dt/vanillafilter.svg" style="max-width:100%;"></a>
+			<a href="https://www.npmjs.com/package/vanillafilter"><img src="https://img.shields.io/npm/dm/vanillafilter.svg" alt="npm" data-canonical-src="https://img.shields.io/npm/dm/vanillafilter.svg" style="max-width:100%;"></a>
+			<a href="https://codeclimate.com/github/dverleg/vanillafilter"><img src="https://img.shields.io/codeclimate/github/dverleg/vanillafilter.svg" alt="npm" data-canonical-src="https://img.shields.io/codeclimate/github/dverleg/vanillafilter.svg" style="max-width:100%;"></a>
+			<a href="https://codeclimate.com/github/dverleg/vanillafilter"><img src="https://img.shields.io/codeclimate/issues/github/dverleg/vanillafilter.svg" alt="npm" data-canonical-src="https://img.shields.io/codeclimate/issues/github/dverleg/vanillafilter.svg" style="max-width:100%;"></a>
 			<a href="https://scrutinizer-ci.com/g/dverleg/vanillafilter/?branch=master"><img src="https://camo.githubusercontent.com/e7d7b74a0d86b7cc74e4aa700e534c7f5a349f99/68747470733a2f2f7363727574696e697a65722d63692e636f6d2f672f647665726c65672f76616e696c6c6166696c7465722f6261646765732f7175616c6974792d73636f72652e706e673f623d6d6173746572" alt="Scrutinizer Code Quality" data-canonical-src="https://scrutinizer-ci.com/g/dverleg/vanillafilter/badges/quality-score.png?b=master" style="max-width:100%;"></a>
 			<a href="https://scrutinizer-ci.com/g/dverleg/vanillafilter/?branch=master"><img src="https://camo.githubusercontent.com/d580dc5bf4072bd91b6bd507348c5756d88f9892/68747470733a2f2f7363727574696e697a65722d63692e636f6d2f672f647665726c65672f76616e696c6c6166696c7465722f6261646765732f636f7665726167652e706e673f623d6d6173746572" alt="Scrutinizer Code Coverage" data-canonical-src="https://scrutinizer-ci.com/g/dverleg/vanillafilter/badges/coverage.png?b=master" style="max-width:100%;"></a>
-			<a href="https://www.npmjs.com/package/vanillafilter"><img src="https://camo.githubusercontent.com/4ec79e089813e401743d2d41bf396fff3c296975/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f646d2f76616e696c6c6166696c7465722e737667" alt="npm" data-canonical-src="https://img.shields.io/npm/dm/vanillafilter.svg" style="max-width:100%;"></a>
+			<a href="https://www.npmjs.com/package/vanillafilter"><img src="https://david-dm.org/dverleg/vanillafilter.svg" alt="npm" data-canonical-src="https://david-dm.org/dverleg/vanillafilter.svg" style="max-width:100%;"></a>
 		</p>
 	</header>
 
@@ -336,10 +340,10 @@
 		</figure>
 	</article>
 
-	<script type="text/javascript" src="./demo.js"></script>
 	<script type="text/javascript" src="./src/scripts/vanillafilter.js"></script>
 	<script type="text/javascript">
-		new VanillaFilter({
+		var VF = new VanillaFilter({
+			vanillaSingleFilter: true,
 			vanillaCallbackFunction: function(elementToShow) {
 				elementToShow.classList.toggle('animated');
 				elementToShow.classList.toggle('pulse');
@@ -351,6 +355,7 @@
 			}
 		});
 	</script>
+	<script type="text/javascript" src="./demo.js"></script>
 
 </body>
 </html>
