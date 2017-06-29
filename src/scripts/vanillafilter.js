@@ -11,6 +11,7 @@
 			debug: false,
 			vanillaTrigger: 'vanillatrigger',
 			vanillaTarget: 'vanillatarget',
+			vanillaSingleFilter: false,
 			vanillaDisplayType: 'block',
 			vanillaFallbackSelector: '.vanilla-no-results',
 			vanillaCallbackFunction: function() {}
@@ -83,10 +84,13 @@
 		var _ = this,
 			activeFilter = event.target;
 
+		console.log(this.filterTrigger);
+		console.log(activeFilter);
+
 		/**
 		 * Set the correct active filters
 		 */
-		_.filterValues = _getFilterValues(activeFilter, _.options.vanillaTrigger, _.filterValues);
+		_.filterValues = _getFilterValues(activeFilter, _.options.vanillaTrigger, _.filterValues, _.options.vanillaSingleFilter);
 
 		if(_.options.debug === true) {
 			console.log('vanillafilter: triggerFilter called for: [', activeFilter ,']. filterValues: [', _.filterValues ,'] added to activeFilters');
@@ -199,7 +203,7 @@
 	 * @param  {Element} filterElement
 	 * @param  {String} filterTriggerValue
 	 */
-	_getFilterValues = function(filterElement, filterTriggerValue, currentFilters) {
+	_getFilterValues = function(filterElement, filterTriggerValue, currentFilters, singleFilter) {
 		var inputValue,
 			inputType,
 			newFilters = currentFilters;
@@ -214,7 +218,7 @@
 		if(inputValue === "") {
 			newFilters = [];
 		} else {
-			if(['SELECT'].includes(filterElement.tagName) || inputType === 'radio') {
+			if(['SELECT'].includes(filterElement.tagName) || inputType === 'radio' || singleFilter === true) {
 				newFilters = [];
 				newFilters.push(inputValue);
 			} else {
