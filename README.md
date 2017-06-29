@@ -7,11 +7,12 @@ ___
 # vanillafilter
 [![GitHub release](https://img.shields.io/github/release/dverleg/vanillafilter.svg)](https://github.com/dverleg/vanillafilter)
 [![Travis](https://img.shields.io/travis/dverleg/vanillafilter.svg)](https://travis-ci.org/dverleg/vanillafilter)
+[![npm](https://img.shields.io/npm/dt/vanillafilter.svg)](https://www.npmjs.com/package/vanillafilter)
+[![npm](https://img.shields.io/npm/dm/vanillafilter.svg)](https://www.npmjs.com/package/vanillafilter)
 [![Code Climate](https://img.shields.io/codeclimate/github/dverleg/vanillafilter.svg)](https://codeclimate.com/github/dverleg/vanillafilter)
 [![Code Climate](https://img.shields.io/codeclimate/issues/github/dverleg/vanillafilter.svg)](https://codeclimate.com/github/dverleg/vanillafilter)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/dverleg/vanillafilter/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/dverleg/vanillafilter/?branch=master)
 [![Scrutinizer Code Coverage](https://scrutinizer-ci.com/g/dverleg/vanillafilter/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/dverleg/vanillafilter/?branch=master)
-[![npm](https://img.shields.io/npm/dm/vanillafilter.svg)](https://www.npmjs.com/package/vanillafilter)
 [![dependencies](https://david-dm.org/dverleg/vanillafilter.svg)](https://www.npmjs.com/package/vanillafilter)
 
 [Intro](#intro)<br>
@@ -92,6 +93,7 @@ vanillafilter comes with a set of options for customization. The options can be 
 		debug: false,
 		vanillaTrigger: 'triggerDataAttribute',
 		vanillaTarget: 'targetsDataAttribute',
+		vanillaSingleFilter: false,
 		vanillaDisplayType: 'wantedDisplayType',
 		vanillaFallbackSelector: 'elementSelector',
 		vanillaCallbackFunction: function(elementToShow) {
@@ -142,9 +144,15 @@ The data-attribute selector of the elements that you want to target for filterin
 </ul>
 ```
 
+#### vanillaSingleFilter
+Option to force a single active filter. If this is set to true, you'll always filter just one target, instead of adding filters to an array.
+> default: false <br>
+
+Can be set to `true` or `false`.
+
 #### vanillaDisplayType
 The CSS 'display' you wish to give the target elements once they're filtered (and shown).
-> default: block
+> default: block <br>
 ```css
 display: block;
 ```
