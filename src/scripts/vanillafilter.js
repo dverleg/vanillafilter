@@ -84,9 +84,6 @@
 		var _ = this,
 			activeFilter = event.target;
 
-		console.log(this.filterTrigger);
-		console.log(activeFilter);
-
 		/**
 		 * Set the correct active filters
 		 */
