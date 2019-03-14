@@ -105,7 +105,7 @@ vanillafilter comes with a set of options for customization. The options can be 
 #### debug
 Disable or enable debug logging
 > default: false <br>
-> Which disabled debug logging
+> Which disables debug logging
 ```js
 var VanillaFilter = new VanillaFilter({
 	debug: true
